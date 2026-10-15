@@ -1,0 +1,28 @@
+services:
+  proxy:
+    container_name: excellence-reverse-proxy
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_NODE_ENV: production
+
+    volumes:
+      - ./proxy/Caddyfile:/etc/caddy/Caddyfile
+      - excellence-caddy-data:/data
+      - excellence-caddy-config:/config
+    restart: unless-stopped
+
+    ports:
+      - 8020:8020
+    networks:
+      - default
+
+volumes:
+  excellence-caddy-data:
+  excellence-caddy-config:
+
+networks:
+  default:
+    name: excellence-network

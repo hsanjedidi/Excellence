@@ -1,0 +1,26 @@
+
+
+
+
+
+:8020 {
+
+    # -----------------------
+    # API reverse proxy
+    # -----------------------
+    handle /api/* {
+        reverse_proxy api:3000
+    }
+
+    handle {
+        root * /srv/web
+        encode gzip
+        file_server
+        try_files {path} /index.html
+    }
+    log {
+		level ERROR
+        format console
+    }
+}
+

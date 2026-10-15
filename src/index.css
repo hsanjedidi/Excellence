@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Inter", sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #c9a96e;
+  color: #071a2b;
+}
+
+.font-ar {
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+/* --- AJOUTS / CORRECTIFS RTL --- */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .font-display {
+  letter-spacing: 0;
+}
+
+/* Inversion logique des dégradés d'arrière-plan pour le RTL */
+[dir="rtl"] .hero-glow {
+  background:
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(77, 163, 217, 0.3),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(201, 169, 110, 0.18),
+      transparent 24%
+    ),
+    linear-gradient(240deg, rgba(7, 26, 43, 0.94), rgba(11, 49, 85, 0.74));
+}
+
+[dir="rtl"] .page-bg {
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(77, 163, 217, 0.09),
+      transparent 22%
+    ),
+    #f8fafc;
+}
+/* ----------------------------- */
+
+.luxe-grid {
+  background-image:
+    linear-gradient(rgba(11, 92, 173, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 92, 173, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(77, 163, 217, 0.3),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(201, 169, 110, 0.18),
+      transparent 24%
+    ),
+    linear-gradient(120deg, rgba(7, 26, 43, 0.94), rgba(11, 49, 85, 0.74));
+}
+
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+}
+
+.page-bg {
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(77, 163, 217, 0.09),
+      transparent 22%
+    ),
+    #f8fafc;
+}
+
+.rtl .font-display {
+  letter-spacing: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Luxury motion system */
+@keyframes ai-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(10px, -16px, 0) rotate(2deg);
+  }
+}
+
+@keyframes ai-pulse {
+  0%,
+  100% {
+    opacity: 0.16;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.34;
+    transform: scale(1.04);
+  }
+}
+
+.ai-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  border-radius: 999px;
+  transform: translate(-50%, -50%) rotate(-12deg);
+}
+
+.ai-orbit-one {
+  width: min(72vw, 900px);
+  height: min(72vw, 520px);
+  animation: ai-pulse 6s ease-in-out infinite;
+}
+
+.ai-orbit-two {
+  width: min(54vw, 680px);
+  height: min(54vw, 390px);
+  border-color: rgba(77, 163, 217, 0.12);
+  transform: translate(-50%, -50%) rotate(22deg);
+  animation: ai-pulse 7s ease-in-out infinite reverse;
+}
+
+.ai-connection {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 3 10;
+  animation: ai-drift 10s ease-in-out infinite;
+}
+
+.shine {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shine:hover::after {
+  transform: translateX(120%) skewX(-18deg);
+}
+
+.luxe-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxe-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(77, 163, 217, 0.14),
+    transparent 42%
+  );
+  transition: opacity 0.5s ease;
+}
+
+.luxe-card:hover::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-orbit,
+  .ai-connection {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,15 @@
+services:
+  proxy:
+    container_name: excellence-proxy
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:8020/api
+        VITE_NODE_ENV: stage
+
+    ports:
+      - "8020:8020"
+    volumes:
+      - ./proxy/Caddyfile.stage:/etc/caddy/Caddyfile

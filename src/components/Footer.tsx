@@ -93,7 +93,7 @@ export default function Footer({ t }: { t: any }) {
             <div className="flex flex-col items-center text-center">
               <Link to="/" className="group flex flex-col items-center">
                 <img
-                  src="/image/logo-removebg-preview (1).png"
+                  src="/logo2.png"
                   alt="Future Schools Excellence Summit"
                   className="
                     h-36 w-auto object-contain
@@ -104,8 +104,6 @@ export default function Footer({ t }: { t: any }) {
                 />
 
                 <div className="mt-4 h-px w-16 bg-champagne/60 transition-all duration-500 group-hover:w-24" />
-
-               
               </Link>
             </div>
 

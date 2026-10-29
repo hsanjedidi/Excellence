@@ -216,7 +216,7 @@ export default function Navbar({ t, lang, setLang }: Props) {
           className="flex min-w-0 shrink items-center"
         >
           <img
-            src="/logo2.png"
+            src="/image/logo2.png"
             alt="Future Schools Excellence Summit"
             className={`w-auto object-contain transition-all duration-300 ${
               scrolled ? LOGO_SIZE.scrolled : LOGO_SIZE.top

@@ -93,7 +93,7 @@ export default function Footer({ t }: { t: any }) {
             <div className="flex flex-col items-center text-center">
               <Link to="/" className="group flex flex-col items-center">
                 <img
-                  src="/logo2.png"
+                  src="/image/logo2.png"
                   alt="Future Schools Excellence Summit"
                   className="
                     h-36 w-auto object-contain
